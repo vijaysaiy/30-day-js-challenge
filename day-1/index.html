@@ -5,11 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day-1 challenge</title>
     <style>
-      #btn-container {
-        height: 100vh;
+      #container {
+        height: 100dvh;
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: 0.3s ease-in-out;
+      }
+      #color {
+        font-weight: 700;
+      }
+      #change-container {
+        height: 200px;
+        width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #000;
       }
       button {
         padding: 12px;
@@ -20,7 +34,8 @@
   </head>
   <body>
     <main id="container">
-      <div id="btn-container">
+      <div id="change-container">
+        <p>Current Background:<span id="color">#FFFFFF</span></p>
         <button onclick="handleBackgroundChange()">
           Click me change the background
         </button>
@@ -41,6 +56,9 @@
     }
     function handleBackgroundChange() {
       const color = getRandomColor();
+      const colorCodeEl = document.getElementById("color");
+      colorCodeEl.textContent = color;
+      colorCodeEl.style.color = color;
       document.getElementById("container").style.backgroundColor = color;
     }
   </script>
