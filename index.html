@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day-1 challenge</title>
+    <style>
+      #btn-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        padding: 12px;
+        color: #000;
+        background: "#fff";
+      }
+    </style>
+  </head>
+  <body>
+    <main id="container">
+      <div id="btn-container">
+        <button onclick="handleBackgroundChange()">
+          Click me change the background
+        </button>
+      </div>
+    </main>
+  </body>
+  <script>
+    function getRandomColor() {
+      const chars = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += chars[getRandomNumber()];
+      }
+      return color;
+    }
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 16);
+    }
+    function handleBackgroundChange() {
+      const color = getRandomColor();
+      document.getElementById("container").style.backgroundColor = color;
+    }
+  </script>
+</html>
